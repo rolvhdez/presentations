@@ -1,0 +1,137 @@
+% !TeX program = lualatex
+\documentclass[9pt,aspectratio=169]{beamer}
+\graphicspath{{img/}{./}}
+%\usepackage[spanish]{babel} % Uncomment to change language
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=ieee]{biblatex}
+    \addbibresource{biblio.bib}
+    \renewcommand*{\bibfont}{\scriptsize} % Change bibliography text size
+    \AtEveryBibitem{\clearfield{title}}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{dirtytalk}
+\usepackage[shortlabels]{enumitem}
+\usepackage[version=4]{mhchem}
+\usepackage{colortbl}
+
+% ------------------------------
+% BEAMER CONFIG
+% ------------------------------
+\usefonttheme{structurebold} % Titles as bold
+\useinnertheme{rectangles} % Outline bulletpoints as circles
+\setbeamertemplate{caption}[numbered] % Numbered in captions
+\captionsetup{font=scriptsize, justification=centering} % Caption text size
+
+% Fonts ----
+% Custom fonts: https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#Using_custom_fonts_with_XeLaTeX_and_LuaLaTeX
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\setsansfont{Inter} % Sans. Titles. Good options include: {Inter, Roboto, Cabin, Arial}
+
+% Theme ----
+\usetheme{Boadilla}
+
+% Colors ----
+\definecolor{primary-color}{HTML}{004990} % #004990
+\definecolor{secondary-color}{HTML}{009FE3} % #009FE3
+\definecolor{tertiary-color}{HTML}{D59F0F} % #D59F0F
+\definecolor{complement-1}{HTML}{EF476F} % #EF476F
+\definecolor{complement-2}{HTML}{06D6A0} % #06D6A0
+
+\setbeamercolor{structure}{fg=primary-color}
+\setbeamercolor{frametitle}{bg=primary-color,fg=white}
+
+% Title card ----
+\titlegraphic{
+\begin{tikzpicture}[overlay,remember picture]
+    \node[anchor=south, yshift=-3pt] at (current page.south){
+        \includegraphics[width=1.05\textwidth]{title-card.png}
+    };
+\end{tikzpicture}
+}
+
+% Title slides for sections ----
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+% Fontawesome as bulletpoints ----
+\newcommand{\usageitem}[1]{
+  \item[ {\makebox[2em]{\strut #1}} ]
+}
+\newcommand{\goal}{ \usageitem{\centering\color{secondary-color}\faBullseye} }
+\newcommand{\conclusion}{ \usageitem{\centering\color{secondary-color}\faArrowCircleRight} }
+\newcommand{\plus}{ \usageitem{\centering\color{secondary-color}\faPlusCircle} }
+
+% ------------------------------
+% PRESENTATION INFORMATION
+% ------------------------------
+\title[Short title]{\large Main title}
+\subtitle{A subtitle} % can be removed/commented
+
+% Presenter name(s) ----
+% The optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+% ----------------------
+\author[Olvera-Hernandez R.]{Roberto Olvera-Hernandez} 
+
+% Your institution ----
+% The optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+% ----------------------
+\institute[CCG - UNAM]{\normalsize \textcolor{secondary-color}{Center for Genomic Sciences (CCG),} \\ National Autonomous University of Mexico (UNAM)} 
+
+% Presentation date or conference/meeting name ----
+% The optional parameter can contain a shortened version to appear on 
+% the bottom of every slide, while the required parameter value is output to the title slide
+% -------------------------------------------------
+\date[\today]{{\small Meeting or conference name} \\ {\footnotesize \today}} 
+
+% -----------------------
+% DOCUMENT
+% -----------------------
+\begin{document}
+\nocite{*}
+{
+    \setbeamertemplate{headline}{}
+    % TITLE CARD ----
+    \begin{frame}
+        \vspace{54pt}
+        \maketitle
+    \end{frame}
+}
+\addtocounter{framenumber}{-1}
+
+% Table of Contents ----
+\begin{frame}
+    \frametitle{Contents}
+        \tableofcontents
+\end{frame}
+
+% Section I ----
+\section{Section I}
+\begin{frame}
+    \frametitle{Frame Title}
+    \framesubtitle{A frame subtitle}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{example-image-a}
+    \end{center}
+\end{frame}
+
+% Bibliography ----
+\begin{frame}
+    \frametitle{References}
+    \begin{multicols}{2}
+        \printbibliography
+    \end{multicols}
+\end{frame}
+
+\end{document}
