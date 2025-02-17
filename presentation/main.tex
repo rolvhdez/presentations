@@ -5,11 +5,12 @@
 \usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage[backend=biber,style=apa]{biblatex}
     \addbibresource{biblio.bib}
     \renewcommand*{\bibfont}{\scriptsize} % Change bibliography text size
     \AtEveryBibitem{\clearfield{title}}
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{colortbl}
 \usepackage{caption}
 \usepackage{multicol}
 \usepackage{dirtytalk}
@@ -40,9 +41,20 @@
 \definecolor{tertiary-color}{HTML}{D59F0F} % #D59F0F
 \definecolor{complement-1}{HTML}{EF476F} % #EF476F
 \definecolor{complement-2}{HTML}{06D6A0} % #06D6A0
+\definecolor{complement-text}{HTML}{545454} % #545454
+
 
 \setbeamercolor{structure}{fg=primary-color}
 \setbeamercolor{frametitle}{bg=primary-color,fg=white}
+\setbeamersize{text margin left=1cm, text margin right=1cm}
+
+\setbeamercolor{title}{fg=primary-color}
+\setbeamercolor{subtitle}{fg=complement-text}
+
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\small,series=\mdseries,shape=\itshape}
+\setbeamerfont{author}{size=\normalsize,series=\mdseries}
+\setbeamerfont{institute}{size=\normalsize,series=\mdseries}
 
 % Title card ----
 \titlegraphic{
@@ -76,8 +88,16 @@
 % ------------------------------
 % PRESENTATION INFORMATION
 % ------------------------------
-\title[Short title]{\large Main title}
-\subtitle{A subtitle} % can be removed/commented
+
+% Presentation titles ----
+\title[Article revision]{Article revision}
+\subtitle{\textcite{ziyatdinov2023,young2022}} % can be removed/commented
+
+% Presentation date or conference/meeting name ----
+% The optional parameter can contain a shortened version to appear on 
+% the bottom of every slide, while the required parameter value is output to the title slide
+% -------------------------------------------------
+\date[\today]{{\small}\\{\footnotesize\today}} 
 
 % Presenter name(s) ----
 % The optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
@@ -87,19 +107,12 @@
 % Your institution ----
 % The optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
 % ----------------------
-\institute[CCG - UNAM]{\normalsize \textcolor{secondary-color}{Center for Genomic Sciences (CCG),} \\ National Autonomous University of Mexico (UNAM)} 
-
-% Presentation date or conference/meeting name ----
-% The optional parameter can contain a shortened version to appear on 
-% the bottom of every slide, while the required parameter value is output to the title slide
-% -------------------------------------------------
-\date[\today]{{\small Meeting or conference name} \\ {\footnotesize \today}} 
+\institute[CCG - UNAM]{\textcolor{primary-color}{Center for Genomic Sciences (CCG),} \\ National Autonomous University of Mexico (UNAM)} 
 
 % -----------------------
 % DOCUMENT
 % -----------------------
 \begin{document}
-\nocite{*}
 {
     \setbeamertemplate{headline}{}
     % TITLE CARD ----
@@ -116,21 +129,19 @@
         \tableofcontents
 \end{frame}
 
-% Section I ----
-\section{Section I}
-\begin{frame}
-    \frametitle{Frame Title}
-    \framesubtitle{A frame subtitle}
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{example-image-a}
-    \end{center}
-\end{frame}
+% ---------------------
+% CONTENTS
+% ---------------------
 
-% Bibliography ----
+\include{slide-library/articles/ziyatdinov-2023}
+
+% ---------------------
+% BIBLIOGRAPHY
+% ---------------------
 \begin{frame}
     \frametitle{References}
     \begin{multicols}{2}
-        \printbibliography
+        \printbibliography[]
     \end{multicols}
 \end{frame}
 
