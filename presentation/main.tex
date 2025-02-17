@@ -30,37 +30,48 @@
 % Custom fonts: https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#Using_custom_fonts_with_XeLaTeX_and_LuaLaTeX
 \usepackage{fontspec}
 \usepackage{fontawesome}
-\setsansfont{Inter} % Sans. Titles. Good options include: {Inter, Roboto, Cabin, Arial}
+
+% Set the main font family to be Serif
+\usefonttheme{serif}
+
+% Establish the font families
+\setmainfont{XCharter}
+\setsansfont{Cabin}
+
+% Costumize Beamer fonts
+\setbeamerfont{title}{size=\huge, series=\bfseries, family=\sffamily}
+\setbeamerfont{frametitle}{series=\bfseries, family=\sffamily}
+\setbeamerfont{framesubtitle}{series=\bfseries, family=\sffamily}
+\setbeamerfont{subtitle}{size=\small, series=\mdseries, shape=\itshape, family=\sffamily}
+\setbeamerfont{author}{size=\normalsize, series=\mdseries, family=\sffamily}
+\setbeamerfont{institute}{size=\normalsize, series=\mdseries, family=\sffamily}
 
 % Theme ----
 \usetheme{Boadilla}
 
 % Colors ----
-\definecolor{primary-color}{HTML}{004990} % #004990
-\definecolor{secondary-color}{HTML}{009FE3} % #009FE3
-\definecolor{tertiary-color}{HTML}{D59F0F} % #D59F0F
-\definecolor{complement-1}{HTML}{EF476F} % #EF476F
-\definecolor{complement-2}{HTML}{06D6A0} % #06D6A0
-\definecolor{complement-text}{HTML}{545454} % #545454
+\definecolor{primary-color}{HTML}{0B3550}
+\definecolor{secondary-color}{HTML}{CF8485}
+\definecolor{tertiary-color}{HTML}{4E83A4}
+\definecolor{complement-1}{HTML}{A02B93}
+\definecolor{complement-2}{HTML}{4EA72E}
 
+\definecolor{complement-text}{HTML}{545454} % #545454
 
 \setbeamercolor{structure}{fg=primary-color}
 \setbeamercolor{frametitle}{bg=primary-color,fg=white}
 \setbeamersize{text margin left=1cm, text margin right=1cm}
 
+% Title and fonts ----
 \setbeamercolor{title}{fg=primary-color}
 \setbeamercolor{subtitle}{fg=complement-text}
 
-\setbeamerfont{title}{size=\huge,series=\bfseries}
-\setbeamerfont{subtitle}{size=\small,series=\mdseries,shape=\itshape}
-\setbeamerfont{author}{size=\normalsize,series=\mdseries}
-\setbeamerfont{institute}{size=\normalsize,series=\mdseries}
 
 % Title card ----
 \titlegraphic{
 \begin{tikzpicture}[overlay,remember picture]
     \node[anchor=south, yshift=-3pt] at (current page.south){
-        \includegraphics[width=1.05\textwidth]{title-card.png}
+        \includegraphics[width=1.05\textwidth]{img/title-card.png}
     };
 \end{tikzpicture}
 }
@@ -133,7 +144,8 @@
 % CONTENTS
 % ---------------------
 
-\include{slide-library/articles/ziyatdinov-2023}
+\include{slide-library/articles/ziyatdinov2023}
+\include{slide-library/articles/young2022}
 
 % ---------------------
 % BIBLIOGRAPHY
