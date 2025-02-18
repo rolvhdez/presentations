@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{csquotes}
-\usepackage[backend=biber, style=apa]{biblatex}
+\usepackage[backend=biber, style=authoryear]{biblatex}
     \addbibresource{biblio.bib}
     \renewcommand*{\bibfont}{\scriptsize} % Change bibliography text size
     \AtEveryBibitem{\clearfield{title}}
@@ -17,6 +17,38 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[version=4]{mhchem}
 \usepackage{colortbl}
+
+% --------------------------------------
+% Add 'Journal' field to the citations
+% --------------------------------------
+\renewbibmacro*{cite}{%
+  % If there is no shorthand field
+  \iffieldundef{shorthand}
+    {%
+      % Check if both labelname and labelyear are undefined
+      \ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
+        {%
+          % If both are undefined, use the label macro
+          \usebibmacro{cite:label}%
+          \setunit{\printdelim{nonameyeardelim}}%
+        }
+        {%
+          % Otherwise, print the author name(s)
+          \printnames{labelname}%
+          \setunit{\printdelim{nameyeardelim}}%
+        }%
+      % Always print the year (labeldate and extradate)
+      \usebibmacro{cite:labeldate+extradate}%
+      % Add a comma and space after the year
+      \setunit{\addcomma\space}%
+      % Print the journal information
+      \usebibmacro{journal}%
+    }
+    {%
+      % If shorthand is defined, use the shorthand macro
+      \usebibmacro{cite:shorthand}%
+    }%
+}
 
 % ------------------------------
 % BEAMER CONFIG
