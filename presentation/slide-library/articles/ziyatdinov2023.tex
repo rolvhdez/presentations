@@ -167,6 +167,48 @@
     \end{columns}
 \end{frame}
 
+
+% -------------------------
+% Methods used
+% -------------------------
+\subsection{Quality control and other methods}
+\begin{frame}
+    \frametitle{Quality Control and other methods}
+    \framesubtitle{Removing low-quality variants using machine learning}
+
+    \begin{center}
+        Using a set of \textcolor{complement-2}{positive} and \textcolor{complement-1}{negative} controls, a \textbf{supervised machine-learning algorithm} was used to discriminate low and high quality variants.
+    \end{center}
+
+    \begin{columns}
+        % Column 1
+        \begin{column}{0.5\textwidth}
+            This is a columns.
+        \end{column}
+        % Column 2
+        \begin{column}{0.5\textwidth}
+            This is another.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Quality control and other methods}
+    \framesubtitle{Reconstructing pedigree}
+    \begin{columns}
+        % Column 1
+        \begin{column}{0.5\textwidth}
+            column
+        \end{column}
+        % Column 2
+        \begin{column}{0.5\textwidth}
+            column
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
 % -------------------------
 % Family networks
 % -------------------------
@@ -178,21 +220,16 @@
     \begin{columns}
         % Column 1
         \begin{column}{0.5\textwidth}
-
-            At least \textbf{\color{primary-color} 71\% of the population} has a relative present in the dataset.
+            At least \textbf{\color{complement-2} 71\% of the population} has a relative present in the dataset.
 
             \begin{itemize}[label=$\bullet$,noitemsep,topsep=5pt]
                 \item \textbf{Parent-offspring:} 31,597 relationships
-                \item \textbf{Sibling pairs:} 31,597 relationships
+                \item \textbf{Sibling pairs:} 29,180 relationships
             \end{itemize}
 
             Close relatedness is explained by families living in \textbf{close proximity}.
-
-            \begin{equation}
-              x = 2 \times y
-            \end{equation}
-
         \end{column}
+
         % Column 2
         \begin{column}{0.5\textwidth}
             \begin{figure}[htpb]
@@ -207,29 +244,120 @@
 \end{frame}
 
 % Comparison of family networks
-\begin{frame}
-    \frametitle{Main findings}
-    \framesubtitle{Dataset comparisons}
 
-    % Please add the following required packages to your document preamble:
-    % \usepackage{booktabs}
-    % \usepackage[table,xcdraw]{xcolor}
-    % Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
-    \begin{table}[]
-    \caption{Comparison of family network sizes in MCPS, GHS and UKB datasets \parencite{ziyatdinov2023}.}
-    \begin{tabular}{@{}cccc@{}}
-    \toprule
-    %\rowcolor{primary-color} 
-    \textbf{}                                  & \textbf{MCPS   150k} & \textbf{GHS   145k} & \textbf{UKB   450k} \\ \midrule
-    Parent-child relationships                 & 31,597 (33.1\%)      & 29,599 (31.1\%)     & 6,270 (2.3\%)       \\
-    Full-sibling relationships                 & 29,482 (26.9\%)      & 18,540 (18.9\%)     & 22,657 (8.5\%)      \\
-    2nd-degree relationships                   & 47,080 (31.2\%)      & 71,766 (42.4\%)     & 11,169 (4.2\%)      \\
-    3rd-degree relationships                   & 120,180 (45.2\%)     & 129,782 (48.0\%)    & 66,847 (19.8\%)     \\
-    Number of pedigrees                        & 22,766               & 19,770              & 24,560              \\
-    Pedigrees with \textgreater{}2 individuals & 9,889                & 7,998               & 2590                \\
-    Individuals with both parents (trios)      & 5,603                & 5,448               & 1,065               \\
-    Pedigrees \textgreater{}2 generations      & 600                  & 2,299               & 0                   \\ \bottomrule
-    \end{tabular}
-    \label{tab:comparison-families}
-    \end{table}
+\begin{frame}
+    \frametitle{Family networks}
+    \framesubtitle{Comparison between other dataset}
+    \begin{columns}
+        % Column 1
+        \begin{column}{0.5\textwidth}
+
+            The levels of \textit{relatedness} were
+            \begin{itemize}[label=$\bullet$,noitemsep,topsep=5pt]
+                \item  much higher than those from the \textcolor{tertiary-color}{UK Biobank (UKB)}.
+                \item comparable with the \textcolor{secondary-color}{Geisinger Health Study (GHS)}--both \textcolor{primary-color}{MCPS} and \textcolor{secondary-color}{GHS} recruited in \textit{close proximity}.
+            \end{itemize}
+        \end{column}
+        % Column 2
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[htpb]
+                \centering
+                \includegraphics[width=0.95\textwidth]{ziyatdinov2023/dataset-comparison.png}
+                \caption{Comparison of network sizes in MCPS, UKB and GHS. Data extracted from Supplementary Table 25 \parencite{ziyatdinov2023}.}
+                \label{fig:label}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
+
+% -------------------------
+% Population structure
+% -------------------------
+\subsection{Population structure and acestry estimation}
+\begin{frame}
+    \frametitle{Population structure}
+    \framesubtitle{Principal Component Analyses (PCA)}
+
+    \begin{center}
+        \textbf{Principal Component Analysis (PCA)} was performed to characteriza heterogeneity and ancestry composition using datasets from:
+    \end{center}
+
+    \begin{columns}
+        % Column 1
+        \begin{column}{0.23\textwidth}
+            \begin{itemize}[noitemsep,topsep=5pt]
+                \item \textbf{\sffamily\color{primary-color} 1,000 Genomes}
+                \begin{itemize}[label=$\bullet$,noitemsep,topsep=0pt]
+                {\footnotesize
+                    \item African (Yoruba): 107 samples
+                    \item European (Iberian): 108 samples
+                }
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+
+        % Column 2
+        \begin{column}{0.43\textwidth}
+            \begin{itemize}[noitemsep,topsep=0pt]
+                \item \textbf{\sffamily\color{primary-color} Metabolic Analysis of an Indigenous Sample (MAIS)}
+                \begin{itemize}[label=$\bullet$,noitemsep,topsep=5pt]
+                {\footnotesize
+                    \item Indigenous Mexico (North, Norhwest, Central, South, Southeast): 591 samples
+                    \item Data: \textcite{garcia-ortiz2021}
+                }
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+
+        % Column 3
+        \begin{column}{0.33\textwidth}
+            \begin{itemize}[noitemsep,topsep=0pt]
+                \item \textbf{\sffamily\color{primary-color} MCPS}
+                \begin{itemize}[label=$\bullet$,noitemsep,topsep=5pt]
+                {\footnotesize
+                    \item Representative: 500 samples
+                    \item \textit{Projected: 138,011 samples}
+                }
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Population structure}
+    \framesubtitle{Principal Component Analyses (PCA)}
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.95\textwidth]{ziyatdinov2023/pca-analysis.png}
+        \caption{PCA analysis to project MCPS data using together Indigenous Mexican, African and European dataset}
+        \label{fig:pca}
+    \end{figure}
+
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Population structure}
+%    \framesubtitle{Principal Components Analyses (PCA)}
+%    
+%    \begin{columns}
+%    % Column 1
+%      \begin{column}{0.5\textwidth}
+%        To characterize \textit{ancestry composition and heterogeneity}, a PCA analysis was performed using samples relative to pre-Columbian populations:
+%
+%        \begin{itemize}[noitemsep,topsep=5pt]
+%            \item Samples from \href{https://www.internationalgenome.org/data/}{1,000 Genomes} dataset:
+%                \begin{itemize}[label=$\bullet$,noitemsep,topsep=2pt]
+%                    \item African (KG_AFR_YRI): 108 samples
+%                    \item Europan (KG_EUR_IBS): 107 samples
+%                \end{itemize}
+%        \end{itemize}
+%
+%      \end{column}
+%    % Column 2
+%      \begin{column}{0.5\textwidth}
+%      \end{column}
+%    \end{columns}
+%    
+%\end{frame}
