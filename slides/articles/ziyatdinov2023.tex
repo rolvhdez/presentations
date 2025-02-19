@@ -277,35 +277,44 @@
 
 % Population structure -------------
 \subsection{Population structure and ancestry}
-\begin{frame}{Principal Components Analyses (PCA)}
+% PCA characterization
+\begin{frame}[fragile,t]{Admixture characterization (PCA)}
+
+\begin{itemize}
+    \item \textbf{1,000 Genomes Project (1KG):} 108 African (Yoruba); 107 European (Iberian).
+    \item \textbf{Metabolic Analysis of an Indigenous Samples (MAIS)}\footnote{\cite{garcia-ortiz2021}}: 591 Indigenous Mexican (north, northwest, central, south, southeast).
+\end{itemize}
+
+\vfill
+
 \begin{columns}
-    % Column 1
-    \begin{column}{0.45\textwidth}
-
-        Characterization of \alert{ancestry composition} adding \textit{unrelated} samples to PCA
-
-        \begin{block}{1,000 Genomes Project}
-            \begin{itemize}
-                \item African (Yoruba): 108 samples
-                \item European (Iberian): 107 samples
-            \end{itemize}
-        \end{block}
-        \begin{block}{Metabolic Analysis of an Indigenous Samples (MAIS)}
-            \begin{itemize}
-                \item Indigenous Mexican: 591 samples (60 populations)
-            \end{itemize}
-            \parencite{garcia-ortiz2021}
-        \end{block}
-    \end{column}
-    % Column 2
     \begin{column}{0.45\textwidth}
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.95\textwidth]{ziyatdinov2023/pca-analysis.png}
-            \caption{PCA for MCPS, African, European and Indigenous Mexican samples.}
-            \label{fig:pca-1-ziyatdinov2023}
+            \includegraphics[width=0.95\textwidth]{ziyatdinov2023/pca-analysis-2.png}
+            \caption{\textit{Model one:} projection of 500 MCPS unrelated samples \parencite{ziyatdinov2023}.}
+            \label{fig:pca-1-admixture}
+        \end{figure}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+        \begin{figure}[htpb]
+            \centering
+            \includegraphics[width=0.95\textwidth]{ziyatdinov2023/pca-analysis-4.png}
+            \caption{\textit{Model two:} projection of 58,051 MCPS unrelated samples \parencite{ziyatdinov2023}.}
+            \label{fig:pca-2-admixture}
         \end{figure}
     \end{column}
 \end{columns}
+\end{frame}
 
+% ADMIXTURE discrete characterization
+\begin{frame}[fragile]{Discrete admixture characterization}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics<1>[width=0.95\textwidth]{ziyatdinov2023/discrete-admixture-1.png}
+        \includegraphics<2>[width=0.95\textwidth]{ziyatdinov2023/discrete-admixture-2.png}
+        \includegraphics<3>[width=0.95\textwidth]{ziyatdinov2023/discrete-admixture-3.png}
+        \caption{Ancestry proportion estimates for 137,511 MCPS samples. Datasets: 1KG, HGDP, and MAIS datasets are shown \parencite{ziyatdinov2023}.}
+        \label{fig:discrete-admixture}
+    \end{figure}
 \end{frame}
