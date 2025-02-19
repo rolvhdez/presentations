@@ -1,0 +1,103 @@
+%Use one of the two documentclass lines depending on aspect ratio needed
+% for 4x3 aspect ratio slides
+%\documentclass{beamer}
+%for 16x9 (modern wide screen) aspect ratio slides
+\documentclass[9pt,aspectratio=169]{beamer}
+\graphicspath{{img/}{./}}
+\usepackage{csquotes}
+\usepackage[backend=biber,citestyle=authoryear,bibstyle=apa]{biblatex}
+\usepackage{multicol}
+\usepackage[light]{mycodestyle}
+
+% Fonts ----
+% Custom fonts: https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#Using_custom_fonts_with_XeLaTeX_and_LuaLaTeX
+\usepackage{fontspec}
+\usepackage{fontawesome}
+
+\usefonttheme{serif}
+\setmainfont{XCharter}
+\setsansfont{Cabin}
+\setmonofont{Source Code Pro}
+
+% Bibliography
+\addbibresource{bibliography.bib}
+\renewcommand*{\bibfont}{\scriptsize} % Change bibliography text size
+\AtEveryBibitem{\clearfield{title}}
+
+
+% CCG theming
+\usetheme{ccgunam}
+
+% Set author etc info
+\title[My Talk]
+{
+  Article review: MCPS and \textit{snipar}
+}
+
+\author{Roberto Olvera-Hernandez}
+\institute{Centre for Genomic Sciences (CCG),\\National Autonomous University of Mexico (UNAM)}
+\date[\today]{Biweekly meeting, \today} % main date for title page,
+
+%% Now for the actual slides %%
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% Slides
+\input{slides/articles/ziyatdinov2023.tex}
+
+% Example of code ----
+\begin{frame}[fragile]{Test for code (Python)}
+  You can use the \texttt{string()} command to highlight a line of code.
+  \begin{lstlisting}[language=python]
+    def write_list(fid, x, level):
+        # Oh look, a comment!
+        ind = '  '*level
+        xs = '0' if abs(x[0]) < 1e-3 else "%.3f"
+        txt = '\n%svalues=\"%s' % (ind, xs)
+        for n in range(1, len(x)): # wow!
+            xs = '0' if abs(x[n]) < 1e-3 else "%.3f"
+            if len(txt) + 3 + len(xs) >= 80:
+                fid.write(txt + ';\n')
+                txt = ind + '  ' + xs
+            else:
+                txt += '; ' + xs
+        fid.write(txt + '\"')
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Test for code (R)}
+  You can use the \texttt{string()} command to highlight a line of code.
+  \begin{lstlisting}[language=rlang]
+    write_list <- function(fid, x, level) {
+    # Oh look, a comment!
+    ind <- paste0(rep("  ", level), collapse = "")
+    xs <- ifelse(abs(x[1]) < 1e-3, "0", "%.3f")
+    txt <- sprintf("\n%svalues=%s", ind, xs)
+    
+    for (n in 2:length(x)) { # wow!
+      xs <- ifelse(abs(x[n]) < 1e-3, "0", "%.3f")
+      if (nchar(txt) + 3 + nchar(xs) >= 80) {
+        cat(txt, ";\n", file = fid, sep = "")
+        txt <- paste0(ind, "  ", xs)
+      } else {
+        txt <- paste0(txt, "; ", xs)
+      }
+    }
+    
+    cat(txt, "\", file = fid, sep = "")
+  }
+  \end{lstlisting}
+\end{frame}
+
+% Bibliography ----
+\begin{frame}
+    \frametitle{References}
+    \begin{multicols}{2}
+        \printbibliography[]
+    \end{multicols}
+\end{frame}
+
+\end{document}
