@@ -276,3 +276,25 @@
 \colorlet{ruleColor}{black}
 \newcommand{\HL}{\tikz[overlay]{\draw[ruleColor, line width=2pt]
     (-10pt,-4pt) -- (-10pt,10pt);}}
+
+% BASH scripts ----
+\lstdefinelanguage{bash}{
+    style=codeonwhite,
+    rulecolor=\color{orange!20},
+    commentstyle=\color{comment},
+    stringstyle=\color{green},
+    keywordstyle=[1]\color{blue},     % shell keywords
+    keywordstyle=[2]\color{orange},   % built-in commands
+    keywords={if, then, else, elif, fi, for, while, do, done, in, case, esac, function, time, select, until, echo, exit, return, break, continue, trap, eval, exec, source, export, unset},
+    morekeywords=[2]{cd, pwd, ls, cp, mv, rm, mkdir, rmdir, touch, chmod, chown, grep, awk, sed, cat, less, more, tail, head, find, xargs, basename, dirname, sort, cut, printf, read, test, true, false, alias, unalias, type, which, kill, jobs, fg, bg, disown},
+    morecomment=[l]{\#},              % single-line comments
+    morestring=[b]",                  % double-quoted strings
+    morestring=[b]',                  % single-quoted strings
+    prebreak={ \char92},
+    escapechar=`
+}
+\lstnewenvironment{bash}[1][1]{%
+    \lstset{language=bash, firstnumber=#1}}{}
+\newcommand*{\inputbash}[3]{\lstinputlisting[linerange={{#2}-{#3}},
+    firstnumber=#2, language=bash]{#1}}
+\newcommand*{\sh}{\lstinline[language=bash, basicstyle=\ttfamily]}
