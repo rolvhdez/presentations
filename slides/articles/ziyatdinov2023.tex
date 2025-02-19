@@ -39,6 +39,7 @@
 % Baseline data -------------
 \begin{frame}{Baseline data}
 
+    \vspace{-3mm}
     % Column A
     \begin{columns}[t]
         {\footnotesize
@@ -126,13 +127,16 @@
 % Genetic datasets ----------------
 \begin{frame}{Genetic datasets}
 
-    Genetic datasets were added later by \textcite{ziyatdinov2023}, making it one of the \highlight{largest} studies for \highlight{non-eurpean} populations.
+    \begin{itemize}
+        \item Genetic datasets were added later by \textcite{ziyatdinov2023}, making it one of the \highlight{largest} studies for \highlight{non-eurpean} populations.
+        \item<2-> Comparison (WES and WGS) were made with other datasets: \textbf{UK Biobank}, \textbf{TOPMed}, \textbf{gnomAD}.
+    \end{itemize}
 
     {\footnotesize
     \begin{columns}[t]
 
         \begin{column}{0.3\textwidth}
-            \begin{block}{Genome-Wide Genotyping}<2->
+            \begin{block}{Genome-Wide Genotyping}<3->
                 \begin{itemize}
                     \item Illumina --- GSAv2 chip array
                     \item 138,511 individuals
@@ -141,7 +145,7 @@
         \end{column}
 
         \begin{column}{0.3\textwidth}
-            \begin{block}{Exome Sequencing (WES)}<3->
+            \begin{block}{Exome Sequencing (WES)}<4->
                 \begin{itemize}
                     \item $n =$ 141,046 individuals
                 \end{itemize}
@@ -157,7 +161,7 @@
         \end{column}
 
         \begin{column}{0.3\textwidth}
-            \begin{block}{Whole-Genome Sequencing (WGS)}<4->
+            \begin{block}{Whole-Genome Sequencing (WGS)}<5->
                 \begin{itemize}
                     \item $n =$ 9,950 individuals
                 \end{itemize}
@@ -175,23 +179,46 @@
 
     \vfill
 
-    \uncover<5->{Both \textbf{WES} and \textbf{WGS} share \alert{93.2\%} of the variants, with an increment of \alert{2.3\%} on \textbf{WGS} data.}
+    \uncover<6->{
+        \begin{itemize}
+            \item Both \textbf{WES} and \textbf{WGS} share \alert{93.2\%} of the variants, with an increment of \alert{2.3\%} on \textbf{WGS} data.
+        \end{itemize}
+    }
+\end{frame}
 
+\begin{frame}{WES and WGS - Comparisons}
+
+    \begin{itemize}
+        \item Lower proportion of \highlight{singletons}, indicates \textit{extensive familial relatedness}.
+        \item Increased number of \highlight{predicted loss of function (pLOF)} variants.
+    \end{itemize}
+
+    \medskip
+
+    % Modified in Excel
+    \begin{figure}[htpb]
+        \centering
+        % Supplementary Table 3
+        \includegraphics<1>[width=0.95\textwidth]{ziyatdinov2023/table-comparison-3.png}
+        % Supplementary Table 7
+        \includegraphics<2>[width=0.95\textwidth]{ziyatdinov2023/table-comparison-7.png}
+    \end{figure}
 \end{frame}
 
 % Family networks ----------------
 \begin{frame}{Family networks}
 
-\begin{columns}[t]
+\begin{columns}
     % Column 1
     \begin{column}{0.45\textwidth} 
 
-       \begin{exampleblock}{Estimation}
+       \begin{exampleblock}{Estimation}<1->
             Relatedness was estimated through \textit{identity-by-descent (IBD)} sharing.
        \end{exampleblock}
 
        \medskip
     
+       \uncover<2->{
         About \alert{71\%} of individuals have \highlight{at least one relative} present in the MCPS dataset. 
 
        \begin{itemize}
@@ -200,19 +227,28 @@
            \item \textbf{Second Degree (2nd):} 47,080 relationships.
            \item \textbf{Third Degree (3rd):} 120,180 relationships.
        \end{itemize}
-
+       }
 
     \end{column}
     % Column 2
-    \begin{column}{0.45\textwidth}
+    \begin{column}{0.45\textwidth}<3->
         \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.95\textwidth]{ziyatdinov2023/familial-relatedness-a.png}
-        \caption{Percentage of the genome.}
+        \caption{Percentage of genome estimated to have zero, one or two IBD alleles \parencite{ziyatdinov2023}.}
         \label{fig:ibd-genome-percentage}
         \end{figure}
     \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Family networks}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[height=2.25in]{ziyatdinov2023/2nd-degree-family-networks.png}
+        \caption{Graph of second-degree family networks of size four or greater \parencite{ziyatdinov2023}.}
+        \label{fig:2nd-degree-megaplot}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Family networks}
@@ -233,19 +269,43 @@
                 \centering
                 \includegraphics[width=0.95\textwidth]{ziyatdinov2023/dataset-comparison.png}
                 \caption{Comparison of network sizes in MCPS, UKB and GHS. Data extracted from Supplementary Table 25 \parencite{ziyatdinov2023}.}
-                \label{fig:label}
+                \label{fig:ziyatdinov2023-nrelationships-comparison}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}[t]{Family networks}
+% Population structure -------------
+\subsection{Population structure and ancestry}
+\begin{frame}{Principal Components Analyses (PCA)}
+\begin{columns}
+    % Column 1
+    \begin{column}{0.45\textwidth}
 
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[height=2.25in]{ziyatdinov2023/2nd-degree-family-networks.png}
-        \caption{Graph of second-degree family networks of size four or greater \parencite{ziyatdinov2023}.}
-        \label{fig:2nd-degree-megaplot}
-    \end{figure}
+        Characterization of \alert{ancestry composition} adding \textit{unrelated} samples to PCA
+
+        \begin{block}{1,000 Genomes Project}
+            \begin{itemize}
+                \item African (Yoruba): 108 samples
+                \item European (Iberian): 107 samples
+            \end{itemize}
+        \end{block}
+        \begin{block}{Metabolic Analysis of an Indigenous Samples (MAIS)}
+            \begin{itemize}
+                \item Indigenous Mexican: 591 samples (60 populations)
+            \end{itemize}
+            \parencite{garcia-ortiz2021}
+        \end{block}
+    \end{column}
+    % Column 2
+    \begin{column}{0.45\textwidth}
+        \begin{figure}[htpb]
+            \centering
+            \includegraphics[width=0.95\textwidth]{ziyatdinov2023/pca-analysis.png}
+            \caption{PCA for MCPS, African, European and Indigenous Mexican samples.}
+            \label{fig:pca-1-ziyatdinov2023}
+        \end{figure}
+    \end{column}
+\end{columns}
 
 \end{frame}

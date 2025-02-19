@@ -8,6 +8,8 @@
 \usepackage[backend=biber,citestyle=authoryear,bibstyle=apa]{biblatex}
 \usepackage{multicol}
 \usepackage[light]{mycodestyle}
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
 
 % Fonts ----
 % Custom fonts: https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#Using_custom_fonts_with_XeLaTeX_and_LuaLaTeX
@@ -34,15 +36,19 @@
   Article review: MCPS and \textit{snipar}
 }
 
-\author{Roberto Olvera-Hernandez}
+\author{B.Sc. Roberto Olvera-Hernandez}
 \institute{Centre for Genomic Sciences (CCG),\\National Autonomous University of Mexico (UNAM)}
-\date[\today]{Biweekly meeting, \today} % main date for title page,
+\date[\today]{\today} % main date for title page,
 
 %% Now for the actual slides %%
 \begin{document}
 
 \begin{frame}[plain]
   \titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+  \tableofcontents
 \end{frame}
 
 % Slides
