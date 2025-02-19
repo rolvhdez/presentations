@@ -40,7 +40,7 @@
 \begin{frame}{Baseline data}
 
     % Column A
-    \begin{columns}
+    \begin{columns}[t]
         {\footnotesize
         \begin{column}{0.3\textwidth}
 
@@ -126,40 +126,45 @@
 % Genetic datasets ----------------
 \begin{frame}{Genetic datasets}
 
-    \begin{columns}
-        % Columns with text
-        \begin{column}{0.45\textwidth}
-            Genetic datasets were added later by \textcite{ziyatdinov2023}, making it one of the \highlight{largest} studies for \highlight{non-eurpean} populations.
+    Genetic datasets were added later by \textcite{ziyatdinov2023}, making it one of the \highlight{largest} studies for \highlight{non-eurpean} populations.
 
-            \begin{block}{Sequences}<2->
+    {\footnotesize
+    \begin{columns}[t]
+
+        \begin{column}{0.3\textwidth}
+            \begin{block}{Genome-Wide Genotyping}<2->
                 \begin{itemize}
-                    \item<2-> \textbf{Genome-Wide Genotyping}
-                    \begin{itemize}
-                        \item Illumina --- GSAv2 chip array
-                        \item $n =$ 138,511 individuals
-                    \end{itemize}
-
-                    \item<3-> \textbf{Exome Sequencing (WES)}
-                    \begin{itemize}
-                        \item $n =$ 141,046 individuals
-                    \end{itemize}
-
-                    \item<4-> \textbf{Whole-Genome Sequencing (WGS)}
-                    \begin{itemize}
-                        \item $n =$ 9,950 individuals
-                    \end{itemize}
+                    \item Illumina --- GSAv2 chip array
+                    \item 138,511 individuals
                 \end{itemize}
             \end{block}
         \end{column}
 
-        % Column with image
-        \begin{column}{0.45\textwidth}
-            \begin{figure}[htpb]
-                \centering
-                \includegraphics[width=\textwidth]{ziyatdinov2023/ziyatdinov2023_header.png}
-            \end{figure}
+        \begin{column}{0.3\textwidth}
+            \begin{block}{Exome Sequencing (WES)}<3->
+                \begin{itemize}
+                    \item $n =$ 141,046 individuals
+                \end{itemize}
+
+                \textbf{Variants:}
+                \begin{itemize}
+                    \item \textit{Total:} 9.3 million.
+                    \item \textit{Coding regions:} 4.0 million in 19,110 genes.
+                    \item \textit{Unique MCPS:} 1.4 million.
+                \end{itemize}
+
+            \end{block}        
+        \end{column}
+
+        \begin{column}{0.3\textwidth}
+            \begin{block}{Whole-Genome Sequencing (WGS)}<4->
+                \begin{itemize}
+                    \item $n =$ 9,950 individuals
+                \end{itemize}
+            \end{block}
         \end{column}
     \end{columns}
+    }
 
 \end{frame}
 
@@ -196,5 +201,25 @@
         \caption{Graph of second-degree family networks of size four or greater \parencite{ziyatdinov2023}.}
         \label{fig:2nd-degree-megaplot}
     \end{figure}
+
+\end{frame}
+
+\begin{frame}{Family networks}
+
+\begin{columns}
+    % Column 1
+    \begin{column}{0.45\textwidth}
+        column
+    \end{column}
+    % Column 2
+    \begin{column}{0.45\textwidth}
+        \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.95\textwidth]{ziyatdinov2023/familial-relatedness-a.png}
+        \caption{Percentage of the genome.}
+        \label{fig:ibd-genome-percentage}
+        \end{figure}
+    \end{column}
+\end{columns}
 
 \end{frame}

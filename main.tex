@@ -29,7 +29,7 @@
 \usetheme{ccgunam}
 
 % Set author etc info
-\title[My Talk]
+\title[Article Review]
 {
   Article review: MCPS and \textit{snipar}
 }
@@ -47,50 +47,6 @@
 
 % Slides
 \input{slides/articles/ziyatdinov2023.tex}
-
-% Example of code ----
-\begin{frame}[fragile]{Test for code (Python)}
-  You can use the \texttt{string()} command to highlight a line of code.
-  \begin{lstlisting}[language=python]
-    def write_list(fid, x, level):
-        # Oh look, a comment!
-        ind = '  '*level
-        xs = '0' if abs(x[0]) < 1e-3 else "%.3f"
-        txt = '\n%svalues=\"%s' % (ind, xs)
-        for n in range(1, len(x)): # wow!
-            xs = '0' if abs(x[n]) < 1e-3 else "%.3f"
-            if len(txt) + 3 + len(xs) >= 80:
-                fid.write(txt + ';\n')
-                txt = ind + '  ' + xs
-            else:
-                txt += '; ' + xs
-        fid.write(txt + '\"')
-  \end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]{Test for code (R)}
-  You can use the \texttt{string()} command to highlight a line of code.
-  \begin{lstlisting}[language=rlang]
-    write_list <- function(fid, x, level) {
-    # Oh look, a comment!
-    ind <- paste0(rep("  ", level), collapse = "")
-    xs <- ifelse(abs(x[1]) < 1e-3, "0", "%.3f")
-    txt <- sprintf("\n%svalues=%s", ind, xs)
-    
-    for (n in 2:length(x)) { # wow!
-      xs <- ifelse(abs(x[n]) < 1e-3, "0", "%.3f")
-      if (nchar(txt) + 3 + nchar(xs) >= 80) {
-        cat(txt, ";\n", file = fid, sep = "")
-        txt <- paste0(ind, "  ", xs)
-      } else {
-        txt <- paste0(txt, "; ", xs)
-      }
-    }
-    
-    cat(txt, "\", file = fid, sep = "")
-  }
-  \end{lstlisting}
-\end{frame}
 
 % Bibliography ----
 \begin{frame}
