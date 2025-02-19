@@ -11,7 +11,9 @@
 
 % tweak colours for Oxford Blue
 \definecolor{ccgblue}{RGB}{0,73,144}
-\definecolor{unamgold}{HTML}{D59F0F}
+\definecolor{unamgold}{HTML}{d59f0f}
+\definecolor{green}{HTML}{40a02b}
+\definecolor{red}{HTML}{e64553}
 \usecolortheme[named=ccgblue]{structure}
 
 %turn off the navigation symbols
@@ -21,6 +23,25 @@
 \setbeamerfont{title}{size=\Large, series=\bfseries, family=\sffamily}
 \setbeamerfont{frametitle}{series=\bfseries, family=\sffamily}
 \setbeamerfont{framesubtitle}{series=\bfseries, family=\sffamily}
+
+% block configuration ----
+%\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamerfont{block title}{family=\sffamily, size=\footnotesize}
+\setbeamerfont{block body}{size=\footnotesize}
+
+%% default
+\setbeamercolor{block title}{fg=white, bg=ccgblue}
+\setbeamercolor{block body}{bg=ccgblue!5}
+
+%% example
+\setbeamerfont{block body example}{size=\footnotesize}
+\setbeamercolor{block title example}{fg=white, bg=green}
+\setbeamercolor{block body example}{bg=green!5}
+
+%% alert
+\setbeamerfont{block body alerted}{size=\footnotesize}
+\setbeamercolor{block title alerted}{fg=white, bg=red}
+\setbeamercolor{block body alerted}{bg=red!5}
 
 % define useful layout lengths
 \newlength{\textmargin}
@@ -32,6 +53,10 @@
 \setlength{\titlevmargin}{1mm} % Top and bottom margin for title and footline
 \newlength{\fullpagewidth}
 \setlength{\fullpagewidth}{\dimexpr\textwidth+\textmargin+\textmargin\relax}
+
+% change block styles
+% Change alert block colors
+
 
 % cool commands to highlight text
 \newcommand{\highlight}[1]{\textbf{\color{unamgold} #1}}
