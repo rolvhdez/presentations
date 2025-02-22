@@ -1,2 +1,128 @@
 \section{Mendelian Imputation}
-\subsection{Methods}
+
+\subsection{Family Genome-Wide Association Studies (FGWAS)}
+
+\begin{frame}{Why use them?}
+    \begin{columns}
+        % Column 1: Image
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.95\linewidth]{example-image-a}
+                \caption{Signals captured by FGWAS in families \parencite{young2019}.}
+                \label{fig:fgwas-genetic-signals}
+            \end{figure}
+        \end{column}
+
+        % Column 2: Text
+        \begin{column}{0.45\textwidth}
+            % Block 1: 
+            \begin{exampleblock}{Unbiased GWAS}<2->
+                \begin{itemize}
+                    \item<2-> Can discriminate \textbf{DGEs}\footnote{Direct Genetic Effects} and \textbf{Population Effects} using \textbf{parental genotypes} as controls.
+                    \item<3-> Source of genetic variation is \textbf{\textit{within-family}}.
+                \end{itemize}
+            \end{exampleblock}
+
+            % Block 2
+            \begin{alertblock}{We lose power}<4->
+                \begin{itemize}
+                    \item<4-> We need \textbf{more individuals $n$} to be genotyped.
+                    \item<5-> Complete parent-offspring trios are \textit{rare} in cohorts.
+                \end{itemize} 
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Traditional GWAS Linear Model}
+
+\only<1>{
+    {\Huge
+       \begin{align*}
+           	\textcolor{black}{\tilde{y}_i} = 
+           	\textcolor{black}{\sum_{k=1}^{K} \delta_k x_{ik}} + 
+           	\textcolor{black}{z_{i}^{\prime}\gamma} +
+           	\textcolor{black}{\epsilon_i}
+       \end{align*} 
+    }
+}
+\uncover<2->{
+    {\Huge
+       \begin{align*}
+           \textcolor{azure!80!black}{\tilde{y}_i} = 
+           \textcolor{green!80!black}{\sum_{k=1}^{K} \delta_k x_{ik}} + 
+           \textcolor{orange!80!black}{z_{i}^{\prime}\gamma} +
+           \textcolor{red!80!black}{\epsilon_i}
+       \end{align*} 
+    }
+}
+
+\begin{enumerate}
+    \item<2-> \textbf{\color{azure!80!black} Observed fenotype} for $i$ individual
+    \item<3-> \textbf{\color{green!80!black} Causal genetic component} for $x$ genotype at SNP $k$, accounts for DGE ($\delta$).
+    \item<4-> \textbf{\color{orange!80!black} Confounding Effects}.
+    \item<5-> \textbf{\color{red!80!black} Error}.
+\end{enumerate}
+   
+\end{frame}
+
+% snipar - parental imputation
+\begin{frame}[fragile]{Parental genotype imputation (\textit{snipar})}
+
+  \begin{columns}
+    % Column 2: Complete data
+    \begin{column}{0.30\textwidth}
+      \begin{center}
+        {\bfseries\color{ccgblue} Complete data}
+        \includegraphics[width=0.95\textwidth]{example-image-a}
+      \end{center}
+    \end{column}
+
+    % Column 2: Siblings only
+    \begin{column}{0.30\textwidth}
+      \begin{center}
+        {\bfseries\color{ccgblue} Siblings only}
+        \includegraphics[width=0.95\textwidth]{example-image-b}
+      \end{center}
+    \end{column}
+
+    % Column 3: Parent-offspring
+    \begin{column}{0.30\textwidth}
+      \begin{center}
+        {\bfseries\color{ccgblue} Parent-offspring}
+        \includegraphics[width=0.95\textwidth]{example-image-c}
+      \end{center}
+    \end{column}
+
+  \end{columns}
+
+  \vfill
+
+  \begin{center}
+    GitHub (\textit{snipar}): \url{https://github.com/AlexTISYoung/snipar}
+  \end{center}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

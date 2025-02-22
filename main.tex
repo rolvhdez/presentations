@@ -1,3 +1,5 @@
+%! TeX program = lualatex
+
 %Use one of the two documentclass lines depending on aspect ratio needed
 % for 4x3 aspect ratio slides
 %\documentclass{beamer}
@@ -10,16 +12,17 @@
 \usepackage[light]{mycodestyle}
 \usepackage{caption}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
+\usepackage{hyperref}
 
 % Fonts ----
 % Custom fonts: https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#Using_custom_fonts_with_XeLaTeX_and_LuaLaTeX
 \usepackage{fontspec}
-\usepackage{fontawesome}
+%\usepackage{fontawesome}
 
 \usefonttheme{serif}
-\setmainfont{XCharter}
-\setsansfont{Cabin}
-\setmonofont{Source Code Pro}
+%\setmainfont{XCharter}
+%\setsansfont{Cabin}
+%\setmonofont{Source Code Pro}
 
 % Bibliography
 \addbibresource{bibliography.bib}
@@ -36,8 +39,8 @@
   Article review: MCPS and \textit{snipar}
 }
 
-\author{B.Sc. Roberto Olvera-Hernandez}
-\institute{Centre for Genomic Sciences (CCG),\\National Autonomous University of Mexico (UNAM)}
+\author[Olvera-Hernandez]{B.Sc. Roberto Olvera-Hernandez}
+\institute[CCG - UNAM]{Centre for Genomic Sciences (CCG),\\National Autonomous University of Mexico (UNAM)}
 \date[\today]{\today} % main date for title page,
 
 %% Now for the actual slides %%
@@ -53,6 +56,7 @@
 
 % Slides
 \input{slides/articles/ziyatdinov2023.tex}
+\input{slides/articles/young2022.tex}
 
 % Bibliography ----
 \begin{frame}
